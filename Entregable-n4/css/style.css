@@ -1,0 +1,1225 @@
+body {
+  background-color: #5499F8;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+/**************** GENERAL ****************/
+
+.full-width {
+  width: 100%;
+}
+
+
+.width-1080 {
+  width: 1080px;
+  height: 720px;
+}
+/**************** LOADER ******************/
+.loading{
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color:rgba(37, 82, 200, 1);
+  z-index: 8000;
+}
+
+
+.circular{
+  height: 100px;
+  width: 100px;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  z-index: 9999;
+}
+
+.circular .inner, .circular .outer, .circular .circle{
+  position: absolute;
+  z-index: 6;
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.2);
+}
+
+.circular .inner{
+  top: 50%;
+  left: 50%;
+  height: 80px;
+  width: 80px;
+  margin: -40px 0 0 -40px;
+  background-color:#2981FF;
+  border-radius: 100%;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+
+.circular .circle{
+  z-index: 1;
+  box-shadow: none;
+}
+
+.circular .numb{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  font-size: 18px;
+  font-weight: 500;
+  color:  rgba(48, 76, 113, 1);
+}
+
+
+.circular .bar{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #FFFF;
+  border-radius: 3px;
+  -webkit-border-radius: 100%;
+  clip: rect(0px, 100px, 100px, 50px);
+}
+
+.circle .bar .progress{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 3px;
+  -webkit-border-radius: 100%;
+  clip: rect(0px, 50px, 100px, 0px);
+}
+
+.circle .bar .progress, .dot span{
+  background: #304c71;
+}
+
+
+
+.circle .left .progress{
+  z-index: 1;
+  animation: left 1s linear both;
+}
+
+@keyframes left {
+  100%{
+    transform: rotate(180deg);
+  }
+}
+
+.circle .right{
+  z-index: 3;
+  transform: rotate(180deg);
+}
+
+.circle .right .progress{
+  animation: right 1s linear both;
+  animation-delay: 1s;
+}
+
+@keyframes right {
+  100%{
+    transform: rotate(180deg);
+  }
+}
+
+.circle .dot{
+  z-index: 2;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 50%;
+  height: 10px;
+  margin-top: -5px;
+  animation: dot 5s linear both;
+  transform-origin: 0% 50%;
+}
+
+.circle .dot span {
+  position: absolute;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+}
+
+@keyframes dot{
+  0% {
+    transform: rotate(-90deg);
+  }
+  50% {
+    transform: rotate(90deg);
+    z-index: 4;
+  }
+  100% {
+    transform: rotate(270deg);
+    z-index: 4;
+  }
+}
+
+
+/**************** HEADER ****************/
+header {
+  z-index: 10000;
+  background: linear-gradient(to bottom,#5499F8 75%, #5498f800 95%);
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 227px;
+  display: flex;
+  justify-content: center;
+  transition: all 1s ease;
+}
+
+header.fixed {
+  z-index: 10000;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 103px;
+  background: linear-gradient(to bottom,#5499F8 85%, #5498f800 95%);
+}
+
+#logo {
+  width: 590px;
+  height: 301px;
+  margin-top: 91px;
+  transition: all 0.5s ease-in-out;
+}
+
+#logo.fixed-img {
+  position: absolute;
+  top: 16px;
+  width: 133px;
+  height: 68px;
+  margin-top: 0px;
+}
+
+/* Menu hamburguesa */
+#btn-menu {
+  position: absolute;
+  width: 42px;
+  height: 36px;
+  translate: (-50%, -50%);
+  cursor: pointer;
+  left: 100px;
+  top: 20px;
+}
+
+
+#linea-1,
+#linea-2,
+#linea-3 {
+  display: block;
+  width: 34px;
+  height: 4px;
+  background-color: #FFE901;
+  border-radius: 30px;
+  border: solid 4px #2981FF;
+  transform-origin: 0px 100%;
+  transition: all 300ms;
+  box-shadow: 5px 5px rgba(2, 24, 126, 1);
+}
+
+#linea-1.activar-linea-1 {
+  box-shadow:none;
+  background-color: #FFE901;
+  border: solid 1px #FFE901;
+
+  transform: rotate(45deg) translate(10px, 0px);
+}
+
+#linea-2.activar-linea-2 {
+  opacity: 0;
+  margin-left: -30px;
+}
+
+#linea-3.activar-linea-3 {
+  box-shadow:none;
+  background-color: #FFE901;
+  border: solid 1px #FFE901;
+
+  transform: rotate(-45deg) translate(-2px, 18px);
+}
+
+#btn-comprar {
+  right: 100px;
+  top: 20px;
+  width: 200px;
+  height: 50px;
+  
+}
+
+.btn {
+  position: absolute;
+  background-color: #FFE901;
+  border-radius: 30px;
+  border: solid 4px #2981FF;
+  font-family: 'Lato', sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+  color: #02187E;
+  box-shadow: 5px 5px rgba(2, 24, 126, 1);
+  -webkit-text-stroke: 1px #02187E;
+  cursor: pointer;
+  transition: 0.3s ease all;
+  -webkit-text-stoke : 2px; 
+
+}
+
+.btn:hover {
+  background-color: #2981FF;
+  color: #FFE901;
+  border-color: #FFE901;
+  -webkit-text-stroke: 1px #FFE901;
+}
+
+.menu-deplegable {
+  display: none;
+  opacity: 0;
+  transform: translateY(-20px);
+  position: absolute;
+  z-index: 9999;
+}
+
+.menu-deplegable.mostrar {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 9999;
+  width: 30%;
+  height: 600px;
+  background: linear-gradient(to top,#FFE901 98%, #ffea0100 99%);
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  color: #02187E;
+  margin-left: 0px;
+  margin-top: 80px;
+  margin-right: 70%;
+  opacity: 1;
+  transform: translateY(0);
+  animation: aparecerMenu 0.5s forwards; 
+}
+
+.menu-deplegable ul {
+  list-style: none;
+  padding: 50px;
+  margin-bottom: 50px;
+  position: relative;
+  top: 40%;
+  transform: translateY(-50%);
+}
+
+.menu-deplegable li {
+  opacity: 0;
+  margin-bottom: 40px;
+  transform: translateX(-20px);
+  animation: aparecerElemento 0.5s ease forwards; 
+  cursor: pointer;
+  border-bottom: solid 2px #FFE901;
+}
+
+.menu-deplegable ul li:hover {
+  font-weight: bolder;
+}
+
+.menu-deplegable li:nth-child(1) {
+  animation-delay: 0.1s; 
+}
+.menu-deplegable li:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.menu-deplegable li:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.menu-deplegable li:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.menu-deplegable li:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.menu-deplegable li:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+
+@keyframes aparecerMenu {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aparecerElemento {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/**************** SECCION 1 SPIDEYS ****************/
+
+#seccion-1 {
+  position: relative;
+  background: url('imagenes/Seccion1/fondo1.png');
+  height: 850px;
+  margin-top: 126px;
+  display: flex;
+  overflow: hidden;
+  background-repeat: repeat-x;
+  animation: scroll 40s infinite linear;
+}
+
+@keyframes scroll {
+  0% {background-position-x: 0px;}
+  100% {background-position-x: -1240px;}
+}
+
+
+
+#seccion-1 img#edificio1, 
+#seccion-1 img#edificio2,
+#seccion-1 img#edificio3 {
+  position: absolute;
+  z-index: 3;
+  transition: all 2s; 
+}
+
+#seccion-1 img#edificio1 {
+  height: 720px;
+  width: 460px;
+  bottom: 120px;
+  left: -55px;
+  z-index: 2;
+}
+
+#seccion-1 img#edificio2 {
+  height: 727.5px;
+  width: 390px;
+  bottom: 150px;
+  right: 0px;
+  z-index: 2;
+}
+
+#seccion-1 img#edificio3 {
+  left: 31%;
+  height: 213.5px;
+  width: 560px;
+  bottom: 120px;
+  z-index: 1;
+}
+
+#seccion-1 img#personaje1,
+#seccion-1 img#personaje2,
+#seccion-1 img#personaje3 {
+  position: absolute;
+  z-index: 6;
+
+}
+
+#seccion-1 img#personaje1 {
+  width: 360px;
+  height: 444px;
+  left: 8%;
+  top: 262px;
+  transition: all 2.5s;  
+
+}
+
+#seccion-1 img#personaje2 {
+  width: 465px;
+  height: 465px;
+  left: 35%;
+  top: 277px;
+  transition: all 1s;  
+}
+
+#seccion-1 img#personaje3 {
+  width: 393px;
+  height: 393px;
+  right: 10%;
+  top: 209px;
+  transition: all 2.5s;  
+
+}
+
+#seccion-1 img#tela-araña-izq,
+#seccion-1 img#tela-araña-der {
+  position: absolute;
+  z-index: 10;
+  display: block;
+  
+}
+
+#seccion-1 img#tela-araña-izq {
+  left: 0;
+  bottom: -70px;
+  transition: all 1s; 
+}
+
+#seccion-1 img#tela-araña-der {
+  right: -40px;
+  bottom: 200px;
+  transition: all 2.5s; 
+}
+
+/**************** SECCION 2 "Conoce a Spidey y sus sorprendentes amigos" ****************/
+
+ #seccion-2 {
+  position: relative;
+  top: -200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+#seccion-2 div.full-width {
+  position: absolute;
+  top: 3px;
+  z-index: 0;
+  width: 100%;
+  height: 844px;
+  background-color: #8F6AA6;
+  clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 85%);
+}
+
+#seccion-2 div.width-1080 {
+  z-index: 1;
+  position: relative;
+}
+
+#seccion-2 div.width-1080 div.texto {
+  position: absolute;
+}
+
+#seccion-2 div.width-1080 div.personaje {
+  position: absolute;
+  right: -65px;
+  top: 0;
+  transform-origin: top;
+  transform: translateY(0);
+}  
+
+#seccion-2 div.width-1080 div.texto h2 {
+  color: white;
+  font-size: 60px;
+  font-weight: 400;
+  width: 585px;
+  margin: 0;
+  margin-top: 200px;
+}
+
+#seccion-2 div.width-1080 div.texto p {
+  color: white;
+  font-size: 20px;
+  width: 580px;
+}
+
+#seccion-2 div.width-1080 div.texto img#spideys-edificio {
+  width: 751.65px;
+  height: 413.13px;
+}
+
+#seccion-2 div.width-1080 div.pesonaje img#personaje-4{
+  
+  width: 553px;
+  height: 921px;
+  z-index: 2;
+  transform: translateY(0);
+}
+
+
+/**************** SECCION 3 Introduccion de los Spidey ****************/
+
+#seccion-3 {
+  position: relative;
+  margin-top: -250px;
+  width: 100%;
+  height: 1085px;
+  background-color: white;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#seccion-3 div.width-1080 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 500px;
+  height: 720px;
+}
+
+#seccion-3 div div.card-personaje {
+  width: 332.96px;
+}
+
+#seccion-3 div div.card-personaje p{
+  font-size: 20px;
+}
+
+#card-1.fade-in {
+  animation: fadeIn 0.7s ease-in, subir 0.7s ease-in;
+}
+#card-2.fade-in {
+  animation: fadeIn 1.4s ease-in, subir 1.4s ease-in;
+}
+#card-3.fade-in {
+  animation: fadeIn 2.8s ease-in, subir 2.8s ease-in;
+}
+
+@keyframes fadeIn {  
+  from {  
+      opacity:0;  
+  }  
+
+  to {  
+      opacity:1;  
+  }  
+}
+
+@keyframes subir {
+  from {
+    transform: translateY(100px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+#card-1,
+#card-2, 
+#card-3 {
+  transform: translateY(0);
+}
+
+
+/**************** SECCION 4 Pistas ****************/
+#seccion-4 {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+#fondo {
+  width: 100%;
+  z-index: 1;
+}
+
+@keyframes aparecer {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.pistas {
+  margin-left: 100px;
+  opacity: 0;
+  position: relative;
+  
+}
+
+.rotate {
+  transition: transform 0.6s ease;
+}
+
+#pista1 {
+  border: none;
+  z-index: 10;
+  margin-top: -150px;
+  position: absolute;
+}
+
+#pista1:hover .rotate{
+  transform: rotateZ(16deg);
+}
+
+#pista2 {
+  padding-top: 10px;
+  z-index: 15;
+  position: absolute;
+}
+
+#pista2:hover .rotate{
+  transform: rotateZ(16deg);
+}
+
+#pista3 {
+  padding-top: 200px;
+  z-index: 20;
+  position: absolute;
+}
+#pista3:hover .rotate{
+  transform: rotateZ(16deg);
+}
+
+
+/**************** SECCION 5 "Los vengadores acompañando tu aventura" ****************/
+#seccion-5{
+  width: 100%;
+  height: 1100px;
+  background-image: url(imagenes/Seccion5/fondoDiv.png);
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: center; 
+  background-color: #fff;
+  margin-top: -120px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: -100000;
+}
+
+
+#seccion-5 h2{
+  padding-top: 250px;
+  color: #fff;
+  font-size: 50px;
+  margin-left: -700px;
+  display: flex;
+  text-align: left;
+  
+}
+
+#vengadores{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 1080px;
+  position: relative;
+  padding-top: 370px;
+}
+
+#capa1 {
+  z-index: 1;
+  position: absolute;
+  width: 1078px; 
+  height: 528px; 
+  overflow: hidden;
+}
+
+.parallax-nubes img {
+  animation: movimiento-nubes 60s linear infinite; 
+}
+
+@keyframes movimiento-nubes {
+  from {
+      transform: translateX(0);
+  }
+  to {
+      transform: translateX(-50%); /* Desplazamiento horizontal para repetir la imagen */
+  }
+}
+#capa2{
+  z-index: 3;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.5);
+}
+#capa3-Hulk{
+  z-index: 5;
+  position: absolute;
+  margin-left: 63%;
+  margin-top: 15%;
+}
+
+#capa3-MsMarvel{
+  z-index: 10;
+  position: absolute;
+  margin-right: 50%;
+  margin-bottom: 1%;
+}
+#capa4{
+  z-index: 15;
+  position: absolute;
+}
+#capa5-Pantera{
+  z-index: 20;
+  position: absolute;
+  margin-left: 20%;
+  margin-bottom: 40%;
+}
+
+
+/**************** SECCION 6 "Mas amigos, mas diversión!" ****************/
+
+#seccion-6{
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  height: 2200px;
+  padding-top: 100px;
+  margin-bottom: -60px;
+}
+
+#seccion-6 .width-1080 {
+  height: 100%;
+}
+
+#seccion-6 h2 {
+  font-size: 60px;
+}
+
+#seccion-6 h3{
+  font-size: 40px;
+  font-weight: 500;
+  margin: 0;
+  width: 467px;
+}
+
+#seccion-6 p {
+  font-size: 20px;
+  width: 467px;
+}
+
+#seccion-6 div.container-scroll{
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+}
+
+#col-img {
+  width: 556px;
+  position: relative;
+}
+
+#col-textos .col-texto {
+  height: 460px;
+  margin-top: 10px;
+  transition: opacity 0.5s ease-in;
+}
+
+#col-img img{
+  margin-bottom: 159px;
+  margin-top: 10px;
+  width: 556px;
+  height: 301px;
+}
+
+.desactivar {
+  opacity:0;
+}
+
+.activar {
+  opacity:1;
+}
+
+.fijado {
+  transition: opacity 0.5s ease-in-out;
+  opacity:1;
+  position: fixed;
+  top: 33%;
+  left: 92px;
+}
+
+#texto-4.col-texto {
+  margin-top: 100px;
+}
+
+img#img-4 {
+  margin-top: 100px;
+}
+
+img#img-4.fijado {
+  margin-top: 0;
+}
+
+
+
+
+/**************** SECCION 7 "”un gran poder conlleva una gran responsabilidad" ****************/
+
+#negro{
+  background-color: black;
+  clip-path: polygon(100% 10%, 100% 85%, 0 100%, 0 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 600px;
+  margin-bottom: 0;
+}
+.unGranPoder{
+  margin-top: 20%;
+  align-items: center;
+  color: #FFFF;
+  font-size: 50px;
+}
+
+#btn-comprar-ahora {
+  position: absolute;
+  -webkit-text-stoke : 2px; 
+  width: 240px;
+  height: 50px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+  background-color: white; 
+  margin-top: -110px;
+  height: 700px;
+  clip-path: polygon(0 0, 90% 30, 100% 100%, 0% 100%);
+  
+}
+
+
+.personaje {
+  
+  transition: transform 0.6s, filter 0.6s, opacity 0.6s;
+}
+.grande {
+  transform: scale(1.4);
+}
+.pequeno {
+  transform: scale(0.8);
+}
+#personajes:hover .personaje:not(:hover) {
+  transform: scale(0.8);
+  filter: blur(2px);
+  opacity: 0.7;
+}
+#personajes:hover .personaje:hover {
+  transform: scale(1.4);
+  cursor: pointer;
+}
+
+
+
+
+.rosa{
+  background-image: url('imagenes/Seccion7/Rectangle10.png'); 
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.celeste{
+  background-image: url('imagenes/Seccion7/Rectangle11.png'); 
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.azul{
+  background-image: url('imagenes/Seccion7/Rectangle12.png'); 
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+
+
+/**************** SECCION 8 "Lo último de SPIDEY Y SUS AMIGOS en tu buzón de correo electrónico" ****************/
+
+#seccion-8 {
+  position: relative;
+  height: 1296px;
+  background-image: url(imagenes/Seccion8/fondo4.png);
+  display: flex;
+  justify-content: center;
+}
+
+#seccion-8 div:first-child {
+  display: flex;
+  flex-direction: column;
+}
+
+#seccion-8 #fondo-s8 {
+  position: absolute;
+  bottom: 0;
+}
+
+#seccion-8 h1 {
+  font-size: 60px;
+  font-weight: 600;
+  width: 816px;
+  margin-top: 152px;
+  text-align: center;
+
+}
+
+#seccion-8 p {
+  height: 95px;
+  width: 578px;
+  margin: 20px 45px 45px 45px;
+  font-size: 20px;
+}
+
+#seccion-8 p span {
+  text-decoration: underline;
+}
+
+#adv {
+  width: 231px;
+  margin-left: 45px;
+}
+
+#suscribirse {
+ display: flex;
+ justify-content: center;
+}
+
+#suscribirse input{
+  background-color: #FFFF;
+  border-radius:  50px 0 0 50px;
+  border: solid 9px #2981FF;
+  border-right: none;
+  width: 510px;
+  height: 82px;
+  letter-spacing: 2px;
+  padding: 0px 0px 0px 50px;
+  color: #02187E;
+  box-shadow: 5px 5px rgba(2, 24, 126, 1);
+}
+
+#suscribirse button {
+  background-color: #FFE901;
+  box-shadow: 5px 5px rgba(2, 24, 126, 1);
+  border: solid 9px #2981FF;
+  border-radius: 0 50px 50px 0;
+  height: 100px;
+  width: 216px;
+  cursor: pointer;
+  color: #02187E;
+  -webkit-text-stroke: 1px #02187E;
+  font-family: 'Lato', sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+  transition: 0.3s ease all;
+}
+
+#suscribirse button:hover {
+  background-color: #2981FF;
+  color: #FFE901;
+  -webkit-text-stroke: 1px #FFE901;
+}
+
+#mensaje {
+  text-align: center;
+  color: #2981FF;
+}
+
+
+
+/* Estilos animacion Spiderman  */
+:root{
+  --posMax:907.188px; /* Posición máxima en el eje Y para la animación 'caida' */
+  --posMin:622.078px; /* Posición minima en el eje Y para la animación 'caida' */
+  --x:150px;          /* Posición inicial en el eje X para la animación 'caida' */
+}
+
+.animacion{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 5 ;
+  position: absolute;
+  bottom: 30px;
+  top: 70%;
+  width: 40px;
+  height: 63px;
+  background: url(imagenes/Seccion8/spiderman.png);
+  transform: scale(1.5);
+  background-position: -22px -56px;
+  animation:
+      vuelta .8s steps(5),
+      avansar 1.6s steps(4) .8s;
+}
+
+/* Animacion para avanzar a lo largo de la pantalla  */
+@keyframes avansar {
+  from{
+      left: 100px;
+      bottom: 60%;
+      background-position: -337px -56px;
+      transform:rotate(10deg);
+  }
+  25%{
+      left: 250px;
+      transform: scale(1.5) rotate(20deg);
+      bottom: 45%;
+  }
+  35%{
+      left: 400px;
+      bottom: 45%;
+      transform:scale(1.5) rotate(10deg);
+  }
+  50%{
+      transform:scale(1.5) rotate(-20deg);
+      left: 650px;
+      bottom: 75%;
+  }
+  75%{
+      left: 900px;
+      bottom: 80%;
+  }
+
+  87%{
+      left: 1100px;
+      bottom: 58%;
+  }
+  to{
+      left: 1280px;
+      bottom: 52%;
+      background-position: -523px -56px;
+  }
+}
+/* Animacion de la vulta que da al principio  */
+@keyframes vuelta{
+  from{
+      left: -50px;
+      bottom: 70%;
+      background-position: -22px -56px;
+  }
+  to{
+      left: 100px;
+      bottom: 60%;
+      background-position: -228px -56px;
+  }
+}
+
+.caida{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  z-index: 5 ;
+  position: absolute;
+  bottom: var(--posMax);
+  left: var(--x);
+  width: 40px;
+  height: 63px;
+  background: url(imagenes/Seccion8/spiderman.png);
+  transform: scale(1.5);
+  background-position: -178px -190px;
+  animation: 
+      golpe .5s steps(3) 1,
+      caida 2s .4s ;
+}
+
+
+/* Animacion de golpe cuando es interseptado por el mouse */
+@keyframes golpe {
+  from{
+      background-position: -178px -190px;
+  }
+  25%{
+      transform: rotate(-22deg) scale(1.5);
+  }
+  50%{
+      transform: rotate(-45deg) scale(1.5);
+  }
+  75%{
+      transform: rotate(-67deg) scale(1.5);
+  }
+  85%{
+      transform: rotate(-85deg) scale(1.5);
+  }
+  to{
+      background-position: -320px -190px;
+      transform: rotate(-100deg) scale(1.5);
+  }
+}
+
+/* Animacion de caida cuando ya fue golpeado por el mouse */
+@keyframes caida {
+  from{
+      background-position: -320px -190px;
+      transform: rotate(-110deg) scale(1.5);
+      bottom: var(--posMax);
+      left: var(--x);
+      opacity: 0.9;
+  }
+  12%{
+      background-position: -320px -190px;
+      transform: rotate(-130deg) scale(1.5);
+      left: calc(var(--x) - (var(--x)*0.02));
+      opacity: 0.5;
+  }
+  25%{
+      background-position: -320px -190px;
+      transform: rotate(-160deg) scale(1.5); 
+      opacity: 0.2;
+  }
+  30%{
+      background-position: -320px -190px;
+      transform: rotate(-160deg) scale(1.5); 
+      opacity: 0;
+  }
+  50%{
+      background-position: -320px -190px;
+      transform: rotate(-180deg) scale(1.5);
+      bottom: 50%;
+      opacity: 0;
+  }
+  51%{
+      opacity: 0;
+  }
+  to{
+      background-position: -320px -190px;
+      transform: rotate(-180deg) scale(1.5);
+      opacity: 0;
+      bottom: var(--posMin);
+      left: var(--x);
+  }
+}
+
+
+
+
+/**************** FOOTER ****************/
+
+footer {
+  background-color: #5E5E5D;
+  height: 678px;
+  color: white;
+}
+
+footer #publicidad {
+  display: flex;
+  justify-content: center;
+  background-color: #242424;
+  height: 80px;
+  width: 100%;
+}
+
+footer p {
+  width: 820px;
+  height: 361px;
+  margin: 100px 20px 20px 100px;
+  font-size: 20px;
+}
+
+footer p span a {
+  padding-top: 14px;
+  text-decoration: underline;
+  color: white;
+}
+
+footer p + img {
+  margin: 30px 100px;
+}
